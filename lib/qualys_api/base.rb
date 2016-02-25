@@ -72,8 +72,14 @@ module Qualys
         super.method_missing name
       end
 
+      def respond_to?(name, include_private = false)
+        return true if @raw_hash.key? name
+        @raw_hash.each { |k,v| return true if k.to_s.to_sym == name }
+        super
+      end
+
       private
-      
+
       def downcase_hash(value)
         case value
           when Array
@@ -94,5 +100,11 @@ class Hash
     self[name] if key? name
     self.each { |k,v| return v if k.to_s.to_sym == name }
     super.method_missing name
+  end
+
+  def respond_to?(name, include_private = false)
+    return true if key? name
+    self.each { |k,v| return true if k.to_s.to_sym == name }
+    super
   end
 end
