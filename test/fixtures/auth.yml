@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://qualysapi.qualys.eu/api/2.0/fo/session/
+    body:
+      encoding: UTF-8
+      string: action=login&password=PASSWORD&username=USERNAME
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      X-Requested-With:
+      - ruby qualys_api
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 23 Feb 2016 22:43:49 GMT
+      Server:
+      - qweb
+      X-Frame-Options:
+      - SAMEORIGIN
+      Set-Cookie:
+      - QualysSession=f11db784e2ea5d991a7a10f796cef0fd; path=/api; secure
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      Pragma:
+      - no-cache
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - text/xml
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE SIMPLE_RETURN SYSTEM "https://qualysapi.qualys.eu/api/2.0/simple_return.dtd">
+        <SIMPLE_RETURN>
+          <RESPONSE>
+            <DATETIME>2016-02-23T22:43:50Z</DATETIME>
+            <TEXT>Logged in</TEXT>
+          </RESPONSE>
+        </SIMPLE_RETURN>
+    http_version:
+  recorded_at: Tue, 23 Feb 2016 22:43:50 GMT
+recorded_with: VCR 3.0.1
