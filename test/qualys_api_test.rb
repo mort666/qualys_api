@@ -7,7 +7,7 @@ class QualysTest < Minitest::Test
 
   def test_knowledge_base_request
     VCR.use_cassette('knowledge_base', :match_requests_on => [:method, :anonymized_uri]) do
-      response = Qualys::KnowledgeBase.new('crtex-ta', 'U2GHQat2', :eu).get_qid('38602')
+      response = Qualys::KnowledgeBase.new('USERNAME', 'PASSWORD', :eu).get_qid('38602')
 
       assert_equal false, response.nil?
       assert_equal '38602', response.first.qid
