@@ -2,6 +2,7 @@ module Qualys
   class Exception < RuntimeError; end
   class InvalidResponse < RuntimeError; end
   class InvalidLogin < RuntimeError; end
+  class LoginRequired < RuntimeError; end
   class InvalidRegion < RuntimeError; end
 
   class Base
